@@ -10,12 +10,22 @@ connectDB()
 const app = express()
 
 // app.use(express.json())
-// app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: false }))
 
+// Goal routes
 app.use(
     '/api/goals', // route
-    express.urlencoded({ extended: false }), // middleware to parse the urlencoded payload
-    require('./routes/goalRoutes'), // router that consist of different api.METODS
+    require('./routes/goalRoutes') // router that consist of different api.METODS
+)
+
+// User routes
+app.use(
+    '/api/users', // route
+    require('./routes/userRoutes') // router that consist of different api.METODS
+)
+
+// Error middleware
+app.use(
     errorHandler // middleware to handle error
 )
 
