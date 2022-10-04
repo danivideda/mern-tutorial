@@ -10,7 +10,7 @@ const getGoals = asyncHandler(async (req, res) => {
 })
 
 // @desc    Set goal
-// @route   SET /api/goals/
+// @route   POST /api/goals/
 // @access  Private
 const setGoal = asyncHandler(async (req, res) => {
     if (!req.body.text) {
@@ -40,7 +40,7 @@ const updateGoal = asyncHandler(async (req, res) => {
 
     const updatedGoal = await Goal.findByIdAndUpdate(goalId, payload, { new: true })
 
-    res.status(200).json({message: 'Goal updated', data: updatedGoal})
+    res.status(200).json({ message: 'Goal updated', data: updatedGoal })
 })
 
 // @desc    Delete goal
