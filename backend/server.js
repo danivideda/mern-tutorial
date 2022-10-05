@@ -9,6 +9,7 @@ connectDB()
 
 const app = express()
 
+// Request payload encoding middlewares
 // app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
